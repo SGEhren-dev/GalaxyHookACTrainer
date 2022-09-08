@@ -56,16 +56,16 @@ typedef struct Options
 typedef struct Addresses
 {
 private:
-	std::vector<unsigned int> primaryAmmoOffset = { 0x374, 0x14, 0x0 };
-	std::vector<unsigned int> primaryReserveOffset = { 0x374, 0x08, 0x128 };
-	std::vector<unsigned int> secondaryAmmoOfset = { 0x374, 0x08, 0x13C };
+	std::vector<uint32> primaryAmmoOffset = { 0x374, 0x14, 0x0 };
+	std::vector<uint32> primaryReserveOffset = { 0x374, 0x08, 0x128 };
+	std::vector<uint32> secondaryAmmoOfset = { 0x374, 0x08, 0x13C };
 
-	std::vector<unsigned int> healthOffsets = { 0xF8 };
-	std::vector<unsigned int> armorOffsets = { 0x374, 0x08, 0xFC };
+	std::vector<uint32> healthOffsets = { 0xF8 };
+	std::vector<uint32> armorOffsets = { 0x374, 0x08, 0xFC };
 
-	std::vector<unsigned int> playerX = { 0x374, 0x08, 0x04 };
-	std::vector<unsigned int> playerY = { 0x374, 0x08, 0x08 };
-	std::vector<unsigned int> playerZ = { 0x374, 0x08, 0x0C };
+	std::vector<uint32> playerX = { 0x374, 0x08, 0x04 };
+	std::vector<uint32> playerY = { 0x374, 0x08, 0x08 };
+	std::vector<uint32> playerZ = { 0x374, 0x08, 0x0C };
 
 public:
 
@@ -77,6 +77,9 @@ public:
 		ArmorAddr = FindDMAAddy(opt->hProcess, opt->dynamicPtrBaseAddress, armorOffsets);
 		SecondaryAmmoAddr = FindDMAAddy(opt->hProcess, opt->dynamicPtrBaseAddress, secondaryAmmoOfset);
 		SecondaryReserveAddr = 0;
+		PlayerX = FindDMAAddy(opt->hProcess, opt->dynamicPtrBaseAddress, playerX);
+		PlayerY = FindDMAAddy(opt->hProcess, opt->dynamicPtrBaseAddress, playerY);
+		PlayerZ = FindDMAAddy(opt->hProcess, opt->dynaminPtrBaseAddress, playerZ);
 	}
 
 	uintptr_t PrimaryAmmoAddr;
@@ -85,6 +88,9 @@ public:
 	uintptr_t ArmorAddr;
 	uintptr_t SecondaryAmmoAddr;
 	uintptr_t SecondaryReserveAddr;
+	uintptr_t PlayerX;
+	uintptr_t PlayerY;
+	uintptr_t PlayerZ;
 
 } addy_t;
 
