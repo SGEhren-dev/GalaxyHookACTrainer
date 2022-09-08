@@ -106,13 +106,18 @@ private:
 	options_t* Options;
 	addy_t* Addresses;
 	d3dsettings_t* D3DSettings;
+	GalaxyHook() {}
 
 public:
-	GalaxyHook();
 	GalaxyHook(const GalaxyHook&) = delete;
+	void operator=(GalaxyHook const&) = delete;
+
 	~GalaxyHook();
 
-	static GalaxyHook& Get();
+	static GalaxyHook& Instance() {
+		static GalaxyHook _singleton;
+		return _singleton;
+	}
 
 	void Update();
 	void DrawMenu();
