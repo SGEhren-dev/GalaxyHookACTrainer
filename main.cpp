@@ -9,7 +9,7 @@
 
 int main()
 {
-	GalaxyHook& cheat = GalaxyHook::Get();
+	GalaxyHook& cheat = GalaxyHook::Instance();
 
 	if (cheat.HookD3D())
 	{

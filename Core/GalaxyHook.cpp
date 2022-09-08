@@ -42,13 +42,6 @@ GalaxyHook::~GalaxyHook()
 	safe_delete(this->D3DSettings);
 }
 
-GalaxyHook& GalaxyHook::Get()
-{
-	// TODO: insert return statement here
-	static GalaxyHook gHook;
-	return gHook;
-}
-
 void GalaxyHook::Update()
 {
 	if (GetAsyncKeyState(VK_F1) & 1)
