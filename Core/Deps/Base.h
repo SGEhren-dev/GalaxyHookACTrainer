@@ -5,3 +5,5 @@
 #define safe_delete(x) if(x) delete x;
 
 #define safe_release(x) if(x) x->Release();
+
+typedef uint32 unsigned int;
